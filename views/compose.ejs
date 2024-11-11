@@ -1,7 +1,23 @@
 <%- include("partials/header") -%>
 
 <h1>Compose</h1>
-  <input type="text">
-  <button>Publish</button>
+ <form action="/compose" method="post">
+  <label for="composeWord">Title</label>
+  <br>
+  <input type="text" name="composeWord">
+
+  <br><br>
+
+  <label for="composeMessage">Your Post</label>
+  <br>
+  <textarea name="composeMessage" id=""></textarea>
+
+  <br><br>
+
+  <button type="submit" name="button">Publish</button>
+ </form>
+
+
+ 
 
 <%- include("partials/footer") -%>
