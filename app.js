@@ -11,12 +11,14 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-var homeStartingContent = "jkhusn hsjhksns sjisnsjknsl sjksjlsks sjojsklsj sjsjklsms sjsjhrjlff";
-var aboutContent = "hjshdkhj djhdhjklc ccjklc djhjdmd djodjdkl djdiokdidkdopkd";
-var contactContent = "hjks djkdnd djkdn fldnd fjkld f;lkf fkf;kfflfmr jtrlkjr jrljrlrrkl jffk;fj";
+let posts= [];
+
+const homeStartingContent = "jkhusn hsjhksns sjisnsjknsl sjksjlsks sjojsklsj sjsjklsms sjsjhrjlff";
+const aboutContent = "hjshdkhj djhdhjklc ccjklc djhjdmd djodjdkl djdiokdidkdopkd";
+const contactContent = "hjks djkdnd djkdn fldnd fjkld f;lkf fkf;kfflfmr jtrlkjr jrljrlrrkl jffk;fj";
 
 app.get ("/", function(req, res){
-  res.render("home", { home : homeStartingContent });
+  res.render("home", { home : homeStartingContent, posts : posts});
 });
 
 app.get ("/about", function (req, res){
@@ -31,9 +33,15 @@ app.get("/compose", function(req, res){
   res.render("compose");
 });
 
+
 app.post("/compose", function(req, res){
-  console.log(req.body);
-  console.log(req.body.composeWord);
+  const post = {
+    composeWord : req.body.composeWord,
+    composeMessage : req.body.composeMessage
+  }
+  posts.push(post);
+ 
+  res.redirect("/");
 });
 
 
