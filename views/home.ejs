@@ -5,7 +5,9 @@
 <h1>Home</h1>
 
 <p><%=home%></p>
-
-  <%=console.log(posts);%>
+  <% for (let i = 0; i < posts.length ; i++){%>
+    <%=console.log(posts[i].composeWord);%>
+ <% } %>
+  
 
 <%- include("partials/footer") -%>
