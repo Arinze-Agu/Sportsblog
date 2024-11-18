@@ -11,14 +11,14 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-let posts= [];
+let postsArray= [];
 
 const homeStartingContent = "jkhusn hsjhksns sjisnsjknsl sjksjlsks sjojsklsj sjsjklsms sjsjhrjlff";
 const aboutContent = "hjshdkhj djhdhjklc ccjklc djhjdmd djodjdkl djdiokdidkdopkd";
 const contactContent = "hjks djkdnd djkdn fldnd fjkld f;lkf fkf;kfflfmr jtrlkjr jrljrlrrkl jffk;fj";
 
 app.get ("/", function(req, res){
-  res.render("home", { home : homeStartingContent, posts : posts});
+  res.render("home", { home : homeStartingContent, postsArray : postsArray});
 });
 
 app.get ("/about", function (req, res){
@@ -39,7 +39,7 @@ app.post("/compose", function(req, res){
     composeWord : req.body.composeWord,
     composeMessage : req.body.composeMessage
   }
-  posts.push(post);
+  postsArray.push(post);
  
   res.redirect("/");
 });
