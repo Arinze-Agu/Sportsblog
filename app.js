@@ -13,20 +13,20 @@ app.use(express.static("public"));
 
 let postsArray= [];
 
-const homeStartingContent = "jkhusn hsjhksns sjisnsjknsl sjksjlsks sjojsklsj sjsjklsms sjsjhrjlff";
-const aboutContent = "hjshdkhj djhdhjklc ccjklc djhjdmd djodjdkl djdiokdidkdopkd";
-const contactContent = "hjks djkdnd djkdn fldnd fjkld f;lkf fkf;kfflfmr jtrlkjr jrljrlrrkl jffk;fj";
+const home = "";
+const about = "hjshdkhj djhdhjklc ccjklc djhjdmd djodjdkl djdiokdidkdopkd";
+const contact = "hjks djkdnd djkdn fldnd fjkld f;lkf fkf;kfflfmr jtrlkjr jrljrlrrkl jffk;fj";
 
 app.get ("/", function(req, res){
-  res.render("home", { home : homeStartingContent, postsArray : postsArray});
+  res.render("home", { home : home , postsArray : postsArray});
 });
 
 app.get ("/about", function (req, res){
-  res.render("about", {about : aboutContent});
+  res.render("about", {about : about});
 });
 
 app.get ("/contact", function (req, res){
-  res.render("contact", {contact : contactContent});
+  res.render("contact", {contact : contact});
 });
 
 app.get("/compose", function(req, res){
